@@ -1,0 +1,47 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet("/PacotesJSONServlet")
+public class PacotesJSONServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Connection conexao = null;
+		try {
+			conexao = ConnectionFactory.createConnectionToMySQL();
+			PacoteDAO pacoteDAO = new PacoteDAO(conexao);
+
+			List<Pacote> pacotes = pacoteDAO.listarPacotes();
+
+			// Converter a lista de pacotes em JSON
+			Gson gson = new Gson();
+			String pacotesJson = gson.toJson(pacotes);
+
+			// Definir o tipo de conteúdo da resposta como JSON
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+
+			// Escrever os dados JSON na resposta
+			response.getWriter().write(pacotesJson);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.getWriter().write("Erro interno do servidor.");
+		} finally {
+			if (conexao != null) {
+				try {
+					conexao.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}

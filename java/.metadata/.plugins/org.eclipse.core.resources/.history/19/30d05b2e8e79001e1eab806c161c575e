@@ -1,0 +1,113 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/ClienteServlet")
+public class MeuClienteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public MeuClienteServlet() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+
+		try {
+			Connection conexao = ConnectionFactory.createConnectionToMySQL();
+			ClienteDAO clienteDAO = new ClienteDAO(conexao);
+
+			if ("listar".equals(action)) {
+				// Lógica para listar todos os clientes
+				List<Cliente> clientes = clienteDAO.listarClientes();
+				request.setAttribute("clientes", clientes);
+				request.getRequestDispatcher("listarClientes.jsp").forward(request, response);
+			}
+
+			// Feche a conexão com o banco de dados
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.getWriter().write("Erro interno do servidor.");
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+
+		try {
+			Connection conexao = ConnectionFactory.createConnectionToMySQL();
+			ClienteDAO clienteDAO = new ClienteDAO(conexao);
+
+			if ("adicionar".equals(action)) {
+				// Lógica para adicionar um novo cliente
+				String cpf = request.getParameter("cpf");
+				String nome = request.getParameter("nome");
+				String dataNasc = request.getParameter("dataNasc");
+				String email = request.getParameter("email");
+
+				Cliente cliente = new Cliente();
+				cliente.setCpf(cpf);
+				cliente.setNome(nome);
+				// Converte a data de String para java.util.Date (ajuste conforme seu formato de
+				// data)
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				Date dataNascimento = sdf.parse(dataNasc);
+				cliente.setDataNasc(dataNascimento);
+				cliente.setEmail(email);
+
+				if (clienteDAO.adicionarCliente(cliente)) {
+					response.getWriter().write("Cliente adicionado com sucesso!");
+				} else {
+					response.getWriter().write("Falha ao adicionar o cliente.");
+				}
+			} else if ("atualizar".equals(action)) {
+				// Lógica para atualizar um cliente
+				// Obtenha os dados do cliente a ser atualizado a partir dos parâmetros da
+				// requisição
+				String cpf = request.getParameter("cpf");
+				String nome = request.getParameter("nome");
+				String dataNasc = request.getParameter("dataNasc");
+				String email = request.getParameter("email");
+
+				Cliente cliente = new Cliente();
+				cliente.setCpf(cpf);
+				cliente.setNome(nome);
+				// Converte a data de String para java.util.Date (ajuste conforme seu formato de
+				// data)
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				Date dataNascimento = sdf.parse(dataNasc);
+				cliente.setDataNasc(dataNascimento);
+				cliente.setEmail(email);
+
+				if (clienteDAO.atualizarCliente(cliente)) {
+					response.getWriter().write("Cliente atualizado com sucesso!");
+				} else {
+					response.getWriter().write("Falha ao atualizar o cliente.");
+				}
+			} else if ("excluir".equals(action)) {
+				// Lógica para excluir um cliente
+				String cpf = request.getParameter("cpf");
+
+				if (clienteDAO.excluirCliente(cpf)) {
+					response.getWriter().write("Cliente excluído com sucesso!");
+				} else {
+					response.getWriter().write("Falha ao excluir o cliente.");
+				}
+			}
+
+			// Feche a conexão com o banco de dados
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.getWriter().write("Erro interno do servidor.");
+		}
+	}
+}

@@ -1,0 +1,157 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import model.Pedido;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.util.Date;
+import java.util.List;
+
+import connection.ConnectionFactory;
+import dao.PedidoDAO;
+
+@WebServlet("/Pedido")
+public class PedidoController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public PedidoController() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+
+		try {
+			Connection conexao = ConnectionFactory.createConnectionToMySQL();
+			PedidoDAO pedidoDAO = new PedidoDAO(conexao);
+
+			if ("listar".equals(action)) {
+				List<Pedido> pedidos = pedidoDAO.listarPedidos();
+				String html = "";
+
+				for (Pedido pedido : pedidos) {
+					html += "<tr>";
+					html += "<td>" + pedido.getIdPedido() + "</td>";
+					html += "<td>" + pedido.getDataPedido() + "</td>";
+					html += "<td>" + pedido.getDiariasPedido() + "</td>";
+					html += "<td>" + pedido.getValorPedido() + "</td>";
+					html += "<td>" + pedido.getFk_pacote_idPacote() + "</td>";
+					html += "<td>" + pedido.getFk_cliente_cpf() + "</td>";
+					html += "</tr>";
+				}
+
+				response.getWriter().write(html);
+			} else {
+				// Se ação não for listar, carregue a lista de pedidos
+				List<Pedido> pedidos = pedidoDAO.listarPedidos();
+				request.setAttribute("pedidos", pedidos);
+
+				// Encaminhe para a página de pedidos (por exemplo, pedido.jsp)
+				request.getRequestDispatcher("pedido.jsp").forward(request, response);
+			}
+
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.getWriter().write("Erro interno do servidor.");
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+
+		try {
+			Connection conexao = ConnectionFactory.createConnectionToMySQL();
+			PedidoDAO pedidoDAO = new PedidoDAO(conexao);
+
+			if ("adicionar".equals(action)) {
+				adicionarPedido(request, response, pedidoDAO);
+			} else if ("atualizar".equals(action)) {
+				atualizarPedido(request, response, pedidoDAO);
+			} else if ("excluir".equals(action)) {
+				excluirPedido(request, response, pedidoDAO);
+			}
+
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.getWriter().write("Erro interno do servidor.");
+		}
+	}
+
+	private void adicionarPedido(HttpServletRequest request, HttpServletResponse response, PedidoDAO pedidoDAO)
+			throws ServletException, IOException {
+		// Lógica para adicionar um novo pedido
+		int idPedido = 0; // Defina o ID do pedido conforme necessário
+		Date dataPedido = new Date(System.currentTimeMillis());
+		int diariasPedido = Integer.parseInt(request.getParameter("diariasPedido"));
+		int fk_pacote_idPacote = Integer.parseInt(request.getParameter("fk_pacote_idPacote"));
+		String fk_cliente_cpf = request.getParameter("fk_cliente_cpf");
+
+		// Calcule o valor do pedido
+		BigDecimal valorDiaria = getValorDiaria(fk_pacote_idPacote); // Substitua pelo método de busca do valor da
+																		// diária
+		BigDecimal valorTotal = valorDiaria.multiply(BigDecimal.valueOf(diariasPedido));
+
+		Pedido pedido = new Pedido();
+		pedido.setIdPedido(idPedido);
+		pedido.setDataPedido(dataPedido);
+		pedido.setDiariasPedido(diariasPedido);
+		pedido.setValorPedido(valorTotal); // Use o valorTotal calculado
+		pedido.setFk_pacote_idPacote(fk_pacote_idPacote);
+		pedido.setFk_cliente_cpf(fk_cliente_cpf);
+
+		if (pedidoDAO.adicionarPedido(pedido)) {
+			response.getWriter().write(
+					"<script>alert('Pedido cadastrado com sucesso!'); window.location.href='pedido.jsp';</script>");
+		} else {
+			response.getWriter()
+					.write("<script>alert('Falha ao cadastrar pedido!'); window.location.href='pedido.jsp';</script>");
+		}
+	}
+
+	private void atualizarPedido(HttpServletRequest request, HttpServletResponse response, PedidoDAO pedidoDAO)
+			throws ServletException, IOException {
+		// Lógica para atualizar um pedido
+		int idPedido = Integer.parseInt(request.getParameter("idPedido"));
+		Date dataPedido = new Date(); // Substitua isso pela obtenção da data correta.
+		int diariasPedido = Integer.parseInt(request.getParameter("diariasPedido"));
+		BigDecimal valorPedido = new BigDecimal(request.getParameter("valorPedido"));
+		int fk_pacote_idPacote = Integer.parseInt(request.getParameter("fk_pacote_idPacote"));
+		String fk_cliente_cpf = request.getParameter("fk_cliente_cpf");
+
+		Pedido pedido = new Pedido();
+		pedido.setIdPedido(idPedido);
+		pedido.setDataPedido(dataPedido);
+		pedido.setDiariasPedido(diariasPedido);
+		pedido.setValorPedido(valorPedido);
+		pedido.setFk_pacote_idPacote(fk_pacote_idPacote);
+		pedido.setFk_cliente_cpf(fk_cliente_cpf);
+
+		if (pedidoDAO.atualizarPedido(pedido)) {
+			response.getWriter().write("Pedido atualizado com sucesso!");
+		} else {
+			response.getWriter().write("Falha ao atualizar o pedido.");
+		}
+	}
+
+	private void excluirPedido(HttpServletRequest request, HttpServletResponse response, PedidoDAO pedidoDAO)
+			throws ServletException, IOException {
+		// Lógica para excluir um pedido
+		int idPedido = Integer.parseInt(request.getParameter("idPedido"));
+
+		if (pedidoDAO.excluirPedido(idPedido)) {
+			response.getWriter().write("Pedido excluído com sucesso!");
+		} else {
+			response.getWriter().write("Falha ao excluir o pedido.");
+		}
+	}
+}

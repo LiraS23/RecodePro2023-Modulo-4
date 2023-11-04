@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Destinos</title>
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css"
+		href="assets/fonts.googleapis.com/css?family=Oswald:200,400%7CLato:300,400,300italic,700%7CMontserrat:900">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+</head>
+
+<body>
+	<div class="page">
+		<header class="section page-header breadcrumbs-custom-wrap bg-gradient bg-secondary-2 novi-background bg-cover">
+			<!-- RD Navbar-->
+			<div class="rd-navbar-wrap rd-navbar-default">
+				<nav class="rd-navbar rd-navbar-expand-lg rd-navbar-light custom-navbar" style="z-index: 1000;"
+					data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+					data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth"
+					data-xl-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed"
+					data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="2px" data-lg-stick-up-offset="2px"
+					data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true"
+					data-xl-stick-up="true">
+					<div class="rd-navbar-inner">
+						<!-- RD Navbar Panel-->
+						<div class="rd-navbar-panel">
+							<!-- RD Navbar Toggle-->
+							<button class="rd-navbar-toggle"
+								data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+							<!-- RD Navbar Brand-->
+							<div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img
+										class="logo-default" src="assets/images/logo-default-208x46.png" alt=""
+										width="208" height="46" /><img class="logo-inverse"
+										src="assets/images/logo-inverse-208x46.png" alt="" width="208"
+										height="46" /></a></div>
+						</div>
+						<div class="rd-navbar-aside-right">
+							<div class="rd-navbar-nav-wrap">
+								<!-- RD Navbar Nav-->
+								<ul class="rd-navbar-nav">
+									<li><a href="index.html">Home</a>
+									</li>
+									<li class="active"><a href="destinos.html">Destinos</a>
+									</li>
+									<li><a href="promocoes.html">Promoções</a>
+									</li>
+									<li><a href="contato.html">Contato</a>
+									</li>
+									<li><a href="cliente.html">Cliente</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="rd-navbar-aside-right"><a class="button button-sm button-secondary button-nina"
+								href="pedidos.html">Reserve um passeio agora</a></div>
+					</div>
+				</nav>
+			</div>
+			<!-- Breadcrumbs-->
+			<section class="breadcrumbs-custom"
+				style="background: url(&quot;https://png.pngtree.com/thumb_back/fw800/back_pic/03/93/99/8257e7bbd63b3ff.jpg&quot;); background-size: cover;">
+				<div class="container">
+					<p class="breadcrumbs-custom-subtitle">Encontre seu proximo destino!</p>
+					<p class="heading-1 breadcrumbs-custom-title">Destinos</p>
+				</div>
+			</section>
+		</header>
+
+		<!-- Cadastro destnos-->
+		<section class="section section-wrap bg-gray-lighter novi-background bg-cover">
+			<div class="section-wrap-inner">
+				<div class="container container-bigger">
+					<div class="row">
+						<div class="col">
+							<div class="section section-lg">
+								<h3>Cadastro destinos</h3>
+								<hr class="divider divider-left divider-secondary">
+								<!-- RD Mailform-->
+								<form class="rd-mailform" data-form-output="form-output-global"
+									data-form-type="cadastro" method="post" action="bat/rd-mailform.php">
+									<div class="row row-fix row-20">
+										<div class="col-md-6">
+											<div class="form-wrap form-wrap-validation">
+												<label class="form-label-outside" for="destino">Destino</label>
+												<input class="form-control"
+													style="border: 5px solid #FFA900; border-radius: 20px;"
+													id="destino" type="text" name="destino"
+													data-constraints="@Required" />
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-wrap form-wrap-validation">
+												<label class="form-label-outside" for="valorDiaria">Valor Diária</label>
+												<input class="form-control"
+													style="border: 5px solid #FFA900; border-radius: 20px;"
+													id="valorDiaria" type="number" name="valorDiaria"
+													data-constraints="@Required" />
+											</div>
+										</div>
+										<div class="col-sm-12 offset-custom-1">
+											<div class="form-button">
+												<button class="btn btn-secondary"
+													style="border: 5px solid #FFA900; border-radius: 20px;"
+													type="submit">Cadastrar Destino</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Destinos-->
+		<section class="section section-lg bg-default text-center">
+			<div class="container container-wide">
+				<div class="row row-fix row-50 row-custom-bordered">
+					<!-- Card 1 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino1.jpg" class="card-img-top" alt="Destino 1">
+							<div class="card-body">
+								<h5 class="card-title">Destino 1</h5>
+								<p class="card-text">Descubra a beleza deste incrível destino e desfrute de uma estadia
+									incrível por apenas R$200/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="200" data-pacote="Destino 1">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Card 2 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 2</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 2">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 3 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 3</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 3">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 4 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 4</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 4">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 5 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 5</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 5">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 6 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 6</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 6">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 7 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 7</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 7">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 8 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 8</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 8">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 9 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 9</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 9">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer Minimal-->
+		<footer class="section page-footer page-footer-minimal novi-background bg-cover text-center bg-gray-darker">
+			<div class="container container-wide">
+				<div class="row row-fix justify-content-sm-center align-items-md-center row-30">
+					<div class="col-md-10 col-lg-7 col-xl-4 text-xl-left"><a href="index.html"><img class="inverse-logo"
+								src="assets/images/logo-inverse-208x46.png" alt="" width="208" height="46" /></a></div>
+					<div class="col-md-10 col-lg-7 col-xl-4">
+						<p class="right">&#169;&nbsp;<span class="copyright-year"></span> All Rights Reserved Viagens
+							Recode
+						</p>
+					</div>
+					<div class="col-md-10 col-lg-7 col-xl-4 text-xl-right">
+						<ul class="group-xs group-middle">
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-facebook"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-twitter"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-instagram"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-google"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-linkedin"
+									href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Global Mailform Output-->
+	<div class="snackbars" id="form-output-global"> </div>
+	<!-- Javascript-->
+	<script src="assets/js/core.min.js"></script>
+	<script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Destinos</title>
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css"
+		href="assets/fonts.googleapis.com/css?family=Oswald:200,400%7CLato:300,400,300italic,700%7CMontserrat:900">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+</head>
+
+<body>
+	<div class="page">
+		<header class="section page-header breadcrumbs-custom-wrap bg-gradient bg-secondary-2 novi-background bg-cover">
+			<!-- RD Navbar-->
+			<div class="rd-navbar-wrap rd-navbar-default">
+				<nav class="rd-navbar rd-navbar-expand-lg rd-navbar-light custom-navbar" style="z-index: 1000;"
+					data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+					data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth"
+					data-xl-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed"
+					data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="2px" data-lg-stick-up-offset="2px"
+					data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true"
+					data-xl-stick-up="true">
+					<div class="rd-navbar-inner">
+						<!-- RD Navbar Panel-->
+						<div class="rd-navbar-panel">
+							<!-- RD Navbar Toggle-->
+							<button class="rd-navbar-toggle"
+								data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+							<!-- RD Navbar Brand-->
+							<div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img
+										class="logo-default" src="assets/images/logo-default-208x46.png" alt=""
+										width="208" height="46" /><img class="logo-inverse"
+										src="assets/images/logo-inverse-208x46.png" alt="" width="208"
+										height="46" /></a></div>
+						</div>
+						<div class="rd-navbar-aside-right">
+							<div class="rd-navbar-nav-wrap">
+								<!-- RD Navbar Nav-->
+								<ul class="rd-navbar-nav">
+									<li><a href="index.html">Home</a>
+									</li>
+									<li class="active"><a href="destinos.html">Destinos</a>
+									</li>
+									<li><a href="promocoes.html">Promoções</a>
+									</li>
+									<li><a href="contato.html">Contato</a>
+									</li>
+									<li><a href="cliente.html">Cliente</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="rd-navbar-aside-right"><a class="button button-sm button-secondary button-nina"
+								href="#">Reserve um passeio agora</a></div>
+					</div>
+				</nav>
+			</div>
+			<!-- Breadcrumbs-->
+			<section class="breadcrumbs-custom"
+				style="background: url(&quot;https://png.pngtree.com/thumb_back/fw800/back_pic/03/93/99/8257e7bbd63b3ff.jpg&quot;); background-size: cover;">
+				<div class="container">
+					<p class="breadcrumbs-custom-subtitle">Encontre seu proximo destino!</p>
+					<p class="heading-1 breadcrumbs-custom-title">Destinos</p>
+				</div>
+			</section>
+		</header>
+		<!-- Contact info-->
+		<section class="section section-lg bg-default text-center">
+			<div class="container container-wide">
+				<div class="row row-fix row-50 row-custom-bordered">
+					<!-- Card 1 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino1.jpg" class="card-img-top" alt="Destino 1">
+							<div class="card-body">
+								<h5 class="card-title">Destino 1</h5>
+								<p class="card-text">Descubra a beleza deste incrível destino e desfrute de uma estadia
+									incrível por apenas R$200/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="200" data-pacote="Destino 1">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Card 2 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 2</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 2">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 3 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 3</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 3">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 4 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 4</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 4">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 5 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 5</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 5">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 6 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 6</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 6">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 7 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 7</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 7">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 8 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 8</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 8">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+					<!-- Card 9 -->
+					<div class="col-md-4">
+						<div class="card mb-4">
+							<img src="caminho-para-a-imagem-destino2.jpg" class="card-img-top" alt="Destino 2">
+							<div class="card-body">
+								<h5 class="card-title">Destino 9</h5>
+								<p class="card-text">Explore as maravilhas deste destino e relaxe em grande estilo por
+									apenas R$250/dia.</p>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#clienteInfoModal"
+									data-diaria="250" data-pacote="Destino 9">Fazer Reserva</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Modal para informações do cliente -->
+		<div class="modal fade" id="clienteInfoModal" tabindex="-1" role="dialog"
+			aria-labelledby="clienteInfoModalLabel" aria-hidden="true" style="z-index: 1500;">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content mt-100">
+					<div class="modal-header">
+						<h5 class="modal-title" id="clienteInfoModalLabel">Informações do Cliente</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="clienteInfoForm">
+							<div class="form-group">
+								<label for="cpf">CPF:</label>
+								<input type="text" class="form-control" id="cpf" name="cpf" required>
+							</div>
+							<div class="form-group">
+								<label for="nome">Nome:</label>
+								<input type="text" class="form-control" id="nome" name="nome" required>
+							</div>
+							<div class="form-group">
+								<label for="data_nascimento">Data de Nascimento:</label>
+								<input type="date" class="form-control" id="data_nascimento" name="data_nascimento"
+									required>
+							</div>
+							<div class="form-group">
+								<label for="email">Email:</label>
+								<input type="email" class="form-control" id="email" name="email" required>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+							data-target="#confirmacaoReservaModal">Seguir para Reserva</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal de confirmação da reserva -->
+		<div class="modal fade" id="confirmacaoReservaModal" tabindex="-1" role="dialog"
+			aria-labelledby="confirmacaoReservaModalLabel" aria-hidden="true" style="z-index: 1500;">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content mt-100">
+					<div class="modal-header">
+						<h5 class="modal-title" id="confirmacaoReservaModalLabel">Confirmação da Reserva</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Por favor, revise as informações da reserva:</p>
+						<p><strong>CPF:</strong> <span id="cpfConfirmacao"></span></p>
+						<p><strong>Pacote Selecionado:</strong> <span id="pacoteConfirmacao"></span></p>
+						<p><strong>Valor da Diária:</strong> R$<span id="valorDiariaConfirmacao"></span></p>
+						<div class="form-group">
+							<label for="diariasReserva">Número de Diárias:</label>
+							<input type="number" class="form-control" id="diariasReserva" name="diariasReserva" required
+								min="1">
+						</div>
+						<p><strong>Total a Pagar:</strong> R$<span id="totalPagarConfirmacao"></span></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+							data-target="#clienteInfoModal">voltar</button>
+						<button type="button" class="btn btn-primary" id="concluirReserva">Concluir Reserva</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Minimal-->
+		<footer class="section page-footer page-footer-minimal novi-background bg-cover text-center bg-gray-darker">
+			<div class="container container-wide">
+				<div class="row row-fix justify-content-sm-center align-items-md-center row-30">
+					<div class="col-md-10 col-lg-7 col-xl-4 text-xl-left"><a href="index.html"><img class="inverse-logo"
+								src="assets/images/logo-inverse-208x46.png" alt="" width="208" height="46" /></a></div>
+					<div class="col-md-10 col-lg-7 col-xl-4">
+						<p class="right">&#169;&nbsp;<span class="copyright-year"></span> All Rights Reserved Viagens
+							Recode
+						</p>
+					</div>
+					<div class="col-md-10 col-lg-7 col-xl-4 text-xl-right">
+						<ul class="group-xs group-middle">
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-facebook"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-twitter"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-instagram"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-google"
+									href="#"></a></li>
+							<li><a class="icon novi-icon icon-md-middle icon-circle icon-secondary-5-filled mdi mdi-linkedin"
+									href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Global Mailform Output-->
+	<div class="snackbars" id="form-output-global"> </div>
+	<!-- Javascript-->
+	<script src="assets/js/core.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script>
+		$(document).ready(function () {
+			var pacoteSelecionado;
+			var valorDiariaSelecionada;
+			var cpfCliente;
+
+			// Quando o botão "Fazer Reserva" é clicado
+			$('.btn-reserva').on('click', function () {
+				pacoteSelecionado = $(this).data('pacote');
+				valorDiariaSelecionada = parseFloat($(this).data('diaria'));
+
+				// Abra o modal de informações do cliente diretamente pelo ID
+				$('#clienteInfoModal').modal('show');
+			});
+
+			// Quando o botão "Seguir para Reserva" é clicado
+			$('#seguirParaReserva').on('click', function () {
+				// Coletar informações do cliente do formulário
+				cpfCliente = $('#cpf').val();
+
+				// Preencher as informações do cliente no modal de confirmação
+				$('#cpfConfirmacao').text(cpfCliente);
+				$('#pacoteConfirmacao').text(pacoteSelecionado);
+				$('#valorDiariaConfirmacao').text(valorDiariaSelecionada.toFixed(2));
+
+				// Fechar o modal de informações do cliente
+				$('#clienteInfoModal').modal('hide');
+
+				// Mostrar o modal de confirmação da reserva
+				$('#confirmacaoReservaModal').modal('show');
+			});
+
+			// Quando o botão "Concluir Reserva" é clicado
+			$('#concluirReserva').on('click', function () {
+				var diariasReserva = parseFloat($('#diariasReserva').val());
+				var totalPagar = valorDiariaSelecionada * diariasReserva;
+
+				// Preencher o total a pagar no modal de confirmação
+				$('#totalPagarConfirmacao').text(totalPagar.toFixed(2));
+
+				// Aqui você pode implementar a lógica para enviar os dados do cliente e da reserva para o servidor
+				// Por exemplo, você pode usar AJAX para enviar os dados para um arquivo PHP no servidor:
+				$.ajax({
+					type: 'POST',
+					url: 'seu_arquivo_de_servidor.php',
+					data: {
+						cpf: cpfCliente,
+						pacote: pacoteSelecionado,
+						valorDiaria: valorDiariaSelecionada,
+						diarias: diariasReserva,
+						totalPagar: totalPagar
+					},
+					success: function (response) {
+						// Aqui você pode lidar com a resposta do servidor
+						if (response === 'sucesso') {
+							// Exibir mensagem de sucesso
+							alert('Reserva concluída com sucesso!');
+						} else {
+							// Exibir mensagem de erro
+							alert('Erro ao processar a reserva. Tente novamente.');
+						}
+					},
+					error: function () {
+						// Tratar erros de conexão com o servidor
+						alert('Erro de conexão com o servidor. Tente novamente.');
+					}
+				});
+			});
+		});
+	</script>
+
+</body>
+
+</html>

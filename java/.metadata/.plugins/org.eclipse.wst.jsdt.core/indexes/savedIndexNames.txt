@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+E:\RecodePro2023-Modulo-4\Entrega\java\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2127270852.index
+3565247451.index
+3006896378.index
+1346426208.index
+1773028507.index
+2843840103.index
+161128556.index

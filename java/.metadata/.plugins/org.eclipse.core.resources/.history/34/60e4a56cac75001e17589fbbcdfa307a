@@ -1,0 +1,63 @@
+package controller;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import model.Pacote;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.Connection;
+
+import connection.ConnectionFactory;
+import dao.PacoteDAO;
+
+@WebServlet("/MeuPacoteServlet")
+public class MeuPacoteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String action = request.getParameter("action");
+
+		if ("adicionar".equals(action)) {
+			Connection conexao = null;
+
+			try {
+				// Obtém uma conexão com o banco de dados usando a ConnectionFactory
+				conexao = ConnectionFactory.createConnectionToMySQL();
+
+				// Crie um PacoteDAO com a conexão
+				PacoteDAO pacoteDAO = new PacoteDAO(conexao);
+
+				// Extrai os dados do formulário
+				String destino = request.getParameter("destino");
+				BigDecimal valorDiaria = new BigDecimal(request.getParameter("valorDiaria"));
+
+				// Crie um objeto Pacote com os dados do formulário
+				Pacote pacote = new Pacote(0, destino, valorDiaria);
+
+				// Chama o método adicionarPacote no PacoteDAO
+				if (pacoteDAO.adicionarPacote(pacote)) {
+					// Se o pacote for adicionado com sucesso, exiba uma mensagem de sucesso usando
+					// JavaScript
+					response.sendRedirect("destino");
+				} else {
+					// Se a adição do pacote falhar, exiba uma mensagem de erro usando JavaScript
+					response.getWriter().write("<script>alert('Falha ao adicionar o pacote.');</script>");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				response.getWriter().write("Erro interno do servidor.");
+			} finally {
+				if (conexao != null) {
+					try {
+						conexao.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+}
